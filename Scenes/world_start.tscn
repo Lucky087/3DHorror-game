@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dol0f3cv16ang"]
+[gd_scene format=3 uid="uid://dol0f3cv16ang"]
 
 [ext_resource type="PackedScene" uid="uid://d3khbdb00mkag" path="res://User_Interface_and_Menu's/UI/ui.tscn" id="1_0r1gf"]
 [ext_resource type="PackedScene" uid="uid://cfxjcofog4yxu" path="res://Scenes/player.tscn" id="1_2vc28"]
+[ext_resource type="PackedScene" uid="uid://0o82xqgmwgxn" path="res://Scenes/flashlight_item.tscn" id="3_mx5am"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2oeuo"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,56 +23,59 @@ glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_0r1gf"]
 
-[node name="World_Start" type="Node3D"]
+[node name="World_Start" type="Node3D" unique_id=882114411]
 
-[node name="UI" parent="." instance=ExtResource("1_0r1gf")]
+[node name="UI" parent="." unique_id=1724981561 instance=ExtResource("1_0r1gf")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=387858825]
 environment = SubResource("Environment_0r1gf")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1648877174]
 transform = Transform3D(0.9997291, -0.0006747348, -0.023265725, 0.009708, 0.9205706, 0.39045548, 0.021154286, -0.39057556, 0.92032784, 1, 11.213696, 12.498341)
 shadow_enabled = true
 
-[node name="Floor" type="StaticBody3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1055904295]
 transform = Transform3D(50, 0, 0, 0, 1.667, 0, 0, 0, 50, 0, 0, 0)
 physics_material_override = SubResource("PhysicsMaterial_2oeuo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=978439504]
 shape = SubResource("BoxShape3D_2vc28")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=237213062]
 mesh = SubResource("BoxMesh_0r1gf")
 
-[node name="Wall" type="StaticBody3D" parent="."]
+[node name="Wall" type="StaticBody3D" parent="." unique_id=1020595436]
 transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 10, 7.7892094, 1.7114925, 6.703848)
 physics_material_override = SubResource("PhysicsMaterial_2oeuo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall" unique_id=1736267591]
 shape = SubResource("BoxShape3D_2vc28")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=124802631]
 mesh = SubResource("BoxMesh_0r1gf")
 
-[node name="Wall2" type="StaticBody3D" parent="."]
+[node name="Wall2" type="StaticBody3D" parent="." unique_id=1247059635]
 transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 10, 7.857893, 1.7114925, -7.0700083)
 physics_material_override = SubResource("PhysicsMaterial_2oeuo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2" unique_id=1542874670]
 shape = SubResource("BoxShape3D_2vc28")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2" unique_id=750459883]
 mesh = SubResource("BoxMesh_0r1gf")
 
-[node name="Wall3" type="StaticBody3D" parent="."]
+[node name="Wall3" type="StaticBody3D" parent="." unique_id=3374979]
 transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 10, -6.8409386, 1.7114925, -0.080329835)
 physics_material_override = SubResource("PhysicsMaterial_2oeuo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3" unique_id=728492555]
 shape = SubResource("BoxShape3D_2vc28")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3" unique_id=1477468839]
 mesh = SubResource("BoxMesh_0r1gf")
 
-[node name="Player" parent="." instance=ExtResource("1_2vc28")]
+[node name="Player" parent="." unique_id=464326402 instance=ExtResource("1_2vc28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5881715, 10.108001)
+
+[node name="Flashlight-item" parent="." unique_id=304044804 instance=ExtResource("3_mx5am")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8273084, 1.5, 0)

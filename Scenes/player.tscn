@@ -1,31 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfxjcofog4yxu"]
+[gd_scene format=3 uid="uid://cfxjcofog4yxu"]
 
 [ext_resource type="Script" uid="uid://dh2m76kthhy5c" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://br8uqchxmhb0t" path="res://Scripts/camera.gd" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://b7nv4exevvyv3" path="res://Scripts/flashlight.gd" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://cfjhtjpmusvcw" path="res://Audio/Ambiance/Flashlight clicks.mp3" id="4_vgqql"]
+[ext_resource type="AudioStream" uid="uid://cb73h4li2ngat" path="res://Audio/Player/Out of Breath.mp3" id="5_fkybt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0iea"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cvnsp"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=502889766 groups=["Player"]]
 script = ExtResource("1_v0iea")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2091631236]
 shape = SubResource("CapsuleShape3D_v0iea")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1212357669]
 mesh = SubResource("CapsuleMesh_cvnsp")
 
-[node name="Head" type="Node3D" parent="."]
+[node name="Head" type="Node3D" parent="." unique_id=1851679925]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29375827, -0.29159063)
 script = ExtResource("2_cvnsp")
 
-[node name="Camera3D" type="Camera3D" parent="Head"]
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1419233294]
 
-[node name="Flashlight" type="SpotLight3D" parent="Head"]
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=293106142]
+target_position = Vector3(0, 0, -1.5)
+
+[node name="Flashlight" type="SpotLight3D" parent="Head" unique_id=1906405104]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.015881538, -0.09356409)
 visible = false
 spot_range = 15.0
 spot_angle = 25.0
 script = ExtResource("3_6t5aa")
+
+[node name="Flashlight_Click_Sound" type="AudioStreamPlayer3D" parent="Head/Flashlight" unique_id=229701378]
+stream = ExtResource("4_vgqql")
+volume_db = -5.195
+max_db = 2.94
+
+[node name="Out_Of_Breath" type="AudioStreamPlayer3D" parent="." unique_id=157358840]
+stream = ExtResource("5_fkybt")
+volume_db = 27.013
+max_db = -0.715

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://0o82xqgmwgxn"]
+
+[ext_resource type="Script" uid="uid://bwo0w2tdrm6a4" path="res://Scripts/flashlight_item.gd" id="1_cgjxs"]
+[ext_resource type="Script" uid="uid://cs2rpbcnv0xtj" path="res://Scripts/Flashlight-staticbody3d.gd" id="2_yi3ou"]
+[ext_resource type="Script" uid="uid://b256t6mu3ywdx" path="res://Scripts/Billboard.gd" id="3_u462y"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ogtc2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_cgjxs"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yi3ou"]
+
+[node name="Flashlight-item" type="Node3D" unique_id=304044804]
+script = ExtResource("1_cgjxs")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=989384467]
+physics_material_override = SubResource("PhysicsMaterial_ogtc2")
+script = ExtResource("2_yi3ou")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2013912918]
+mesh = SubResource("SphereMesh_cgjxs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1575409146]
+shape = SubResource("SphereShape3D_yi3ou")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1495338968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.017665982, 0)
+billboard = 1
+shaded = true
+no_depth_test = true
+text = "Press E"
+script = ExtResource("3_u462y")
+
+[node name="RayCast3D" type="RayCast3D" parent="Label3D" unique_id=294990051]
+target_position = Vector3(0, 0, -1)
