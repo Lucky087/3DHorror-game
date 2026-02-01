@@ -35,7 +35,7 @@ transform = Transform3D(0.9997291, -0.0006747348, -0.023265725, 0.009708, 0.9205
 shadow_enabled = true
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1055904295]
-transform = Transform3D(50, 0, 0, 0, 1.667, 0, 0, 0, 50, 0, 0, 0)
+transform = Transform3D(300, 0, 0, 0, 1.667, 0, 0, 0, 300, 0, 0, 0)
 physics_material_override = SubResource("PhysicsMaterial_2oeuo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=978439504]
